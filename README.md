@@ -66,3 +66,11 @@ v1.00
 2. Most buttons will react to their actual in-aircraft state, but sliders do NOT. I am still working on a decent way to implement this.
 
 3. Knob control was very finicky. The autopilot knobs have incremental controls in the TouchOSC template, but typically it is much faster to use your scroll wheel on your computer instead. 
+
+--------------------------------------------------------------
+# Preview
+![MCP/Glarshield Page](/images/MCP_Glareshield.png?raw=true "MCP/Glareshield Page")
+![Pedestal Page](/images/Pedestal.png?raw=true "Pedestal Page")
+![Overhead Page](/images/Overhead.png?raw=true "Overhead Page")
+![DCP/CCP Page](/images/DCP_CCP.png?raw=true "DCP/CCP Page")
+![CDU Page](/images/CDU.png?raw=true "CDU Page")
