@@ -1,0 +1,930 @@
+#----------------------------------------------------------------------------------------------------------------------
+# XMidiCtrl
+#
+# Example configuration for the Behringer X-Touch Mini MIDI controller together with the Hot Start Challenger 650
+#
+# This configuration was created by Reflected Reality Simulations. Thank you very much for all your testing and work!
+#
+# More about Reflected Reality Simulations: https://www.youtube.com/c/ReflectedRealitySimulations
+#
+# How to use:
+#   1. Copy this file into the aircraft directory of the CL-650 and rename it to XMidiCtrl.toml
+#   2. Adjust the port_in and port_out variables
+#   3. Start X-Plane or reload the profile from the plugin menu XMidiCtrl -> Reload Aircraft Profile
+#----------------------------------------------------------------------------------------------------------------------
+
+title   = "Settings for the Hot Start Challenger 650 by Reflected Reality Simulations"
+version = "1.00"
+sl_dataref = "CL650/pilot_seat"
+
+# TouchOSC Bridge
+[[device]]
+name       = "TouchOSC Bridge"
+port_in    = 0
+port_out   = 0
+mapping_in = [
+  #--------------------------------------------------------------------------------------------------------------------
+  # GLARESHIELD
+  #--------------------------------------------------------------------------------------------------------------------
+
+  # Dials
+  { ch = 2, cc = 81, type = "cmd", command = "CL650/DCP/1/baro_down" },
+  { ch = 2, cc = 82, type = "cmd", command = "CL650/DCP/1/baro_up" },
+
+  { ch = 2, cc = 83, type = "cmd", command = "CL650/DCP/1/baro_push" },
+  { ch = 2, cc = 84, type = "cmd", command = "CL650/DCP/2/baro_down" },
+  { ch = 2, cc = 85, type = "cmd", command = "CL650/DCP/2/baro_up" },
+  { ch = 2, cc = 86, type = "cmd", command = "CL650/DCP/2/baro_push" },
+  { ch = 2, cc = 87, type = "cmd", command = "CL650/ISI/baro_down" },
+  { ch = 2, cc = 88, type = "cmd", command = "CL650/ISI/baro_up" },
+  { ch = 2, cc = 89, type = "cmd", command = "CL650/ISI/std" },
+
+  { ch = 2, cc = 21, type = "cmd", command = "CL650/FCP/crs1_down" },
+  { ch = 2, cc = 22, type = "cmd", command = "CL650/FCP/vs_pitch_down" },
+  { ch = 2, cc = 23, type = "cmd", command = "CL650/FCP/speed_down" },
+  { ch = 2, cc = 24, type = "cmd", command = "CL650/FCP/hdg_down" },
+  { ch = 2, cc = 25, type = "cmd", command = "CL650/FCP/alt_down" },
+  { ch = 2, cc = 26, type = "cmd", command = "CL650/FCP/crs2_down" },
+  { ch = 2, cc = 31, type = "cmd", command = "CL650/FCP/crs1_up" },
+  { ch = 2, cc = 32, type = "cmd", command = "CL650/FCP/vs_pitch_up" },
+  { ch = 2, cc = 33, type = "cmd", command = "CL650/FCP/speed_up" },
+  { ch = 2, cc = 34, type = "cmd", command = "CL650/FCP/hdg_up" },
+  { ch = 2, cc = 35, type = "cmd", command = "CL650/FCP/alt_up"} ,
+  { ch = 2, cc = 36, type = "cmd", command = "CL650/FCP/crs2_up" },
+
+  # Encoder Buttons
+  { ch = 2, cc = 41, type = "cmd", command = "CL650/FCP/crs1_push" },
+  { ch = 2, cc = 43, type = "cmd", command = "CL650/FCP/ias_mach" },
+  { ch = 2, cc = 44, type = "cmd", command = "CL650/FCP/hdg_sync" },
+  { ch = 2, cc = 45, type = "cmd", command = "CL650/FCP/alt_cancel" },
+  { ch = 2, cc = 46, type = "cmd", command = "CL650/FCP/crs2_push" },
+
+  # Buttons Upper Row
+  { ch = 2, cc = 72, type = "cmd", command = "CL650/glareshield/N2_SYNC"},
+  { ch = 2, cc = 71, type = "cmd", command = "CL650/glareshield/ATS"},
+  { ch = 2, cc = 18, type = "cmd", command = "CL650/DCP/1/nav_src" },
+  { ch = 2, cc = 2, type = "cmd", command = "CL650/FCP/vs_mode" },
+  { ch = 2, cc = 3, type = "cmd", command = "CL650/FCP/flc_mode" },
+  { ch = 2, cc = 5, type = "cmd", command = "CL650/FCP/hdg_mode" },
+  { ch = 2, cc = 7, type = "cmd", command = "CL650/FCP/alt_mode" },
+  { ch = 2, cc = 23, type = "cmd", command = "CL650/DCP/2/nav_src" },
+  { ch = 2, cc = 9, type = "cmd", command = "CL650/FCP/ap_eng"},
+  { ch = 2, cc = 8, type = "cmd", command = "CL650/FCP/xfr"},
+
+  # Buttons Lower Row
+  { ch = 16, cc = 1, type = "cmd", command = "CL650/glareshield/master_warn_L" },
+  { ch = 2, cc = 1, type = "cmd", command = "CL650/FCP/fd1" },
+  { ch = 2, cc = 11, type = "cmd", command = "CL650/FCP/vnav_mode"},
+  { ch = 2, cc = 6, type = "cmd", command = "CL650/FCP/appr_mode"},
+  { ch = 2, cc = 4, type = "cmd", command = "CL650/FCP/nav_mode"},
+  { ch = 2, cc = 13, type = "cmd", command = "CL650/FCP/bc_mode"},
+  { ch = 2, cc = 10, type = "cmd", command = "CL650/FCP/fd2"},
+  { ch = 2, cc = 12, type = "cmd", command = "CL650/FCP/half_bank_mode"},
+  { ch = 2, cc = 14, type = "cmd", command = "CL650/FCP/turb_mode"},
+  { ch = 2, cc = 15, type = "cmd", command = "CL650/FCP/ap_disc"},
+  { ch = 16, cc = 2, type = "cmd", command = "CL650/glareshield/master_warn_R" },
+
+  # HUD
+  { ch = 2, cc = 127, type = "sld", dataref = "CL650/glareshield/hud_brt" },
+  
+  
+  #--------------------------------------------------------------------------------------------------------------------
+  # PEDESTAL
+  #--------------------------------------------------------------------------------------------------------------------
+
+  # DCP 1
+
+  { ch = 3, cc = 1, type = "cmd", command = "CL650/DCP/1/menu" },
+  { ch = 3, cc = 2, type = "cmd", command = "CL650/DCP/1/esc" },
+  { ch = 3, cc = 3, type = "cmd", command = "CL650/DCP/1/nav_src" },
+  { ch = 3, cc = 4, type = "cmd", command = "CL650/DCP/1/frmt" },
+  { ch = 3, cc = 5, type = "cmd", command = "CL650/DCP/1/tfc" },
+  { ch = 3, cc = 6, type = "cmd", command = "CL650/DCP/1/tr_wx" },
+  { ch = 3, cc = 7, type = "cmd", command = "CL650/DCP/1/brg_src" },
+  { ch = 3, cc = 8, type = "cmd", command = "CL650/DCP/1/refs" },
+  { ch = 3, cc = 9, type = "cmd", command = "CL650/DCP/1/rdr_menu" },
+  { ch = 3, cc = 10, type = "cmd", command = "CL650/DCP/1/radar" },
+
+  { ch = 3, cc = 11, type = "cmd", command = "CL650/DCP/1/menu_adv_down" },
+  { ch = 3, cc = 12, type = "cmd", command = "CL650/DCP/1/menu_data_down" },
+  { ch = 3, cc = 13, type = "cmd", command = "CL650/DCP/1/tilt_down" },
+  { ch = 3, cc = 14, type = "cmd", command = "CL650/DCP/1/range_down" },
+  { ch = 3, cc = 15, type = "cmd", command = "CL650/DCP/1/menu_adv_up" },
+  { ch = 3, cc = 16, type = "cmd", command = "CL650/DCP/1/menu_data_up" },
+  { ch = 3, cc = 17, type = "cmd", command = "CL650/DCP/1/tilt_up" },
+  { ch = 3, cc = 18, type = "cmd", command = "CL650/DCP/1/range_up" },
+  
+  { ch = 3, cc = 19, type = "cmd", command = "CL650/DCP/1/menu_push" },
+  { ch = 3, cc = 20, type = "cmd", command = "CL650/DCP/1/tilt_auto" },
+
+  # CCP 1
+
+  { ch = 3, cc = 21, type = "cmd", command = "CL650/CCP/1/upr_menu" },
+  { ch = 3, cc = 22, type = "cmd", command = "CL650/CCP/1/esc" },
+  { ch = 3, cc = 23, type = "cmd", command = "CL650/CCP/1/lwr_menu" },
+
+  { ch = 3, cc = 24, type = "cmd", command = "CL650/CCP/1/mem1" },
+  { ch = 3, cc = 25, type = "cmd", command = "CL650/CCP/1/mem2" },
+  { ch = 3, cc = 26, type = "cmd", command = "CL650/CCP/1/mem3" },
+  { ch = 3, cc = 27, type = "cmd", command = "CL650/CCP/1/chart" },
+  { ch = 3, cc = 28, type = "cmd", command = "CL650/CCP/1/jstk" },
+  { ch = 3, cc = 29, type = "cmd", command = "CL650/CCP/1/chart_orient" },
+  { ch = 3, cc = 30, type = "cmd", command = "CL650/CCP/1/zoom_down" },
+  { ch = 3, cc = 60, type = "cmd", command = "CL650/CCP/1/zoom_up" },
+  
+  { ch = 3, cc = 31, type = "cmd", command = "CL650/CCP/1/lwr_frmt" },
+  { ch = 3, cc = 32, type = "cmd", command = "CL650/CCP/1/tfc" },
+  { ch = 3, cc = 33, type = "cmd", command = "CL650/CCP/1/tr_wx" },
+  { ch = 3, cc = 34, type = "cmd", command = "CL650/CCP/1/sumry" },
+  { ch = 3, cc = 35, type = "cmd", command = "CL650/CCP/1/ac_elec" },
+  { ch = 3, cc = 36, type = "cmd", command = "CL650/CCP/1/hyd"},
+  { ch = 3, cc = 37, type = "cmd", command = "CL650/CCP/1/dc_elec"},
+  { ch = 3, cc = 38, type = "cmd", command = "CL650/CCP/1/flt"},
+  { ch = 3, cc = 39, type = "cmd", command = "CL650/CCP/1/cas"},
+
+  { ch = 3, cc = 40, type = "cmd", command = "CL650/CCP/1/radio"},
+  { ch = 3, cc = 41, type = "cmd", command = "CL650/CCP/1/freq"},
+  { ch = 3, cc = 42, type = "cmd", command = "CL650/CCP/1/1_2"},
+  { ch = 3, cc = 43, type = "cmd", command = "CL650/CCP/1/dme_h"},
+  { ch = 3, cc = 44, type = "cmd", command = "CL650/CCP/1/ident"},
+  { ch = 3, cc = 45, type = "cmd", command = "CL650/CCP/1/atc"},
+
+  { ch = 3, cc = 46, type = "cmd", command = "CL650/CCP/1/menu_adv_down" },
+  { ch = 3, cc = 47, type = "cmd", command = "CL650/CCP/1/menu_data_down" },
+  { ch = 3, cc = 48, type = "cmd", command = "CL650/CCP/1/radio_data_down" },
+  { ch = 3, cc = 49, type = "cmd", command = "CL650/CCP/1/radio_adv_down" },
+  { ch = 3, cc = 50, type = "cmd", command = "CL650/CCP/1/menu_adv_up" },
+  { ch = 3, cc = 51, type = "cmd", command = "CL650/CCP/1/menu_data_up" },
+  { ch = 3, cc = 52, type = "cmd", command = "CL650/CCP/1/radio_data_up" },
+  { ch = 3, cc = 53, type = "cmd", command = "CL650/CCP/1/radio_adv_up" },
+  
+  { ch = 3, cc = 54, type = "cmd", command = "CL650/CCP/1/menu_push" },
+  { ch = 3, cc = 55, type = "cmd", command = "CL650/CCP/1/radio_push" },
+  
+  { ch = 3, cc = 56, type = "cmd", command = "CL650/CCP/1/jstk_up"},
+  { ch = 3, cc = 57, type = "cmd", command = "CL650/CCP/1/jstk_right"},
+  { ch = 3, cc = 58, type = "cmd", command = "CL650/CCP/1/jstk_down"},
+  { ch = 3, cc = 59, type = "cmd", command = "CL650/CCP/1/jstk_left"},
+
+
+
+  # DCP 2
+
+  { ch = 4, cc = 1, type = "cmd", command = "CL650/DCP/2/menu" },
+  { ch = 4, cc = 2, type = "cmd", command = "CL650/DCP/2/esc" },
+  { ch = 4, cc = 3, type = "cmd", command = "CL650/DCP/2/nav_src" },
+  { ch = 4, cc = 4, type = "cmd", command = "CL650/DCP/2/frmt" },
+  { ch = 4, cc = 5, type = "cmd", command = "CL650/DCP/2/tfc" },
+  { ch = 4, cc = 6, type = "cmd", command = "CL650/DCP/2/tr_wx" },
+  { ch = 4, cc = 7, type = "cmd", command = "CL650/DCP/2/brg_src" },
+  { ch = 4, cc = 8, type = "cmd", command = "CL650/DCP/2/refs" },
+  { ch = 4, cc = 9, type = "cmd", command = "CL650/DCP/2/rdr_menu" },
+  { ch = 4, cc = 10, type = "cmd", command = "CL650/DCP/2/radar" },
+
+  { ch = 4, cc = 11, type = "cmd", command = "CL650/DCP/2/menu_adv_down" },
+  { ch = 4, cc = 12, type = "cmd", command = "CL650/DCP/2/menu_data_down" },
+  { ch = 4, cc = 13, type = "cmd", command = "CL650/DCP/2/tilt_down" },
+  { ch = 4, cc = 14, type = "cmd", command = "CL650/DCP/2/range_down" },
+  { ch = 4, cc = 15, type = "cmd", command = "CL650/DCP/2/menu_adv_up" },
+  { ch = 4, cc = 16, type = "cmd", command = "CL650/DCP/2/menu_data_up" },
+  { ch = 4, cc = 17, type = "cmd", command = "CL650/DCP/2/tilt_up" },
+  { ch = 4, cc = 18, type = "cmd", command = "CL650/DCP/2/range_up" },
+  
+  { ch = 4, cc = 19, type = "cmd", command = "CL650/DCP/2/menu_push" },
+  { ch = 4, cc = 20, type = "cmd", command = "CL650/DCP/2/tilt_auto" },
+
+  # CCP 2
+
+  { ch = 4, cc = 21, type = "cmd", command = "CL650/CCP/2/upr_menu" },
+  { ch = 4, cc = 22, type = "cmd", command = "CL650/CCP/2/esc" },
+  { ch = 4, cc = 23, type = "cmd", command = "CL650/CCP/2/lwr_menu" },
+
+  { ch = 4, cc = 24, type = "cmd", command = "CL650/CCP/2/mem1" },
+  { ch = 4, cc = 25, type = "cmd", command = "CL650/CCP/2/mem2" },
+  { ch = 4, cc = 26, type = "cmd", command = "CL650/CCP/2/mem3" },
+  { ch = 4, cc = 27, type = "cmd", command = "CL650/CCP/2/chart" },
+  { ch = 4, cc = 28, type = "cmd", command = "CL650/CCP/2/jstk" },
+  { ch = 4, cc = 29, type = "cmd", command = "CL650/CCP/2/chart_orient" },
+  { ch = 4, cc = 30, type = "cmd", command = "CL650/CCP/1/zoom_down" },
+  { ch = 4, cc = 60, type = "cmd", command = "CL650/CCP/1/zoom_up" },
+  
+  { ch = 4, cc = 31, type = "cmd", command = "CL650/CCP/2/lwr_frmt" },
+  { ch = 4, cc = 32, type = "cmd", command = "CL650/CCP/2/tfc" },
+  { ch = 4, cc = 33, type = "cmd", command = "CL650/CCP/2/tr_wx" },
+  { ch = 4, cc = 34, type = "cmd", command = "CL650/CCP/2/sumry" },
+  { ch = 4, cc = 35, type = "cmd", command = "CL650/CCP/2/ac_elec" },
+  { ch = 4, cc = 36, type = "cmd", command = "CL650/CCP/2/hyd"},
+  { ch = 4, cc = 37, type = "cmd", command = "CL650/CCP/2/dc_elec"},
+  { ch = 4, cc = 38, type = "cmd", command = "CL650/CCP/2/flt"},
+  { ch = 4, cc = 39, type = "cmd", command = "CL650/CCP/2/cas"},
+
+  { ch = 4, cc = 40, type = "cmd", command = "CL650/CCP/2/radio"},
+  { ch = 4, cc = 41, type = "cmd", command = "CL650/CCP/2/freq"},
+  { ch = 4, cc = 42, type = "cmd", command = "CL650/CCP/2/1_2"},
+  { ch = 4, cc = 43, type = "cmd", command = "CL650/CCP/2/dme_h"},
+  { ch = 4, cc = 44, type = "cmd", command = "CL650/CCP/2/ident"},
+  { ch = 4, cc = 45, type = "cmd", command = "CL650/CCP/2/atc"},
+
+  { ch = 4, cc = 46, type = "cmd", command = "CL650/CCP/2/menu_adv_down" },
+  { ch = 4, cc = 47, type = "cmd", command = "CL650/CCP/2/menu_data_down" },
+  { ch = 4, cc = 48, type = "cmd", command = "CL650/CCP/2/radio_data_down" },
+  { ch = 4, cc = 49, type = "cmd", command = "CL650/CCP/2/radio_adv_down" },
+  { ch = 4, cc = 50, type = "cmd", command = "CL650/CCP/2/menu_adv_up" },
+  { ch = 4, cc = 51, type = "cmd", command = "CL650/CCP/2/menu_data_up" },
+  { ch = 4, cc = 52, type = "cmd", command = "CL650/CCP/2/radio_data_up" },
+  { ch = 4, cc = 53, type = "cmd", command = "CL650/CCP/2/radio_adv_up" },
+  
+  { ch = 4, cc = 54, type = "cmd", command = "CL650/CCP/2/menu_push" },
+  { ch = 4, cc = 55, type = "cmd", command = "CL650/CCP/2/radio_push" },
+  
+  { ch = 4, cc = 56, type = "cmd", command = "CL650/CCP/2/jstk_up"},
+  { ch = 4, cc = 57, type = "cmd", command = "CL650/CCP/2/jstk_right"},
+  { ch = 4, cc = 58, type = "cmd", command = "CL650/CCP/2/jstk_down"},
+  { ch = 4, cc = 59, type = "cmd", command = "CL650/CCP/2/jstk_left"},
+
+  # PEDESTAL
+  
+  { ch = 5, cc = 1, type = "cmd", command = "CL650/pedestal/eng_cont/apr" },
+  { ch = 5, cc = 2, type = "cmd", command = "CL650/pedestal/eng_cont/apr_test_up" },
+  { ch = 5, cc = 3, type = "cmd", command = "CL650/pedestal/eng_cont/apr_test_down" },
+  { ch = 5, cc = 4, type = "cmd", command = "CL650/pedestal/eng_cont/vib_test" },
+  { ch = 5, cc = 5, type = "cmd", command = "CL650/pedestal/eng_cont/eng_speed_L" },
+  { ch = 5, cc = 6, type = "cmd", command = "CL650/pedestal/eng_cont/eng_speed_R" },
+  
+  { ch = 5, cc = 7, type = "cmd", command = "CL650/pedestal/test/eng_bottle_L" },
+  { ch = 5, cc = 8, type = "cmd", command = "CL650/pedestal/test/eng_bottle_R" },
+  { ch = 5, cc = 9, type = "cmd", command = "CL650/pedestal/test/apu_bottle" },
+  { ch = 5, cc = 10, type = "cmd", command = "CL650/pedestal/test/fire_det_up" },
+  { ch = 5, cc = 11, type = "cmd", command = "CL650/pedestal/test/fire_det_down" },
+  { ch = 5, cc = 12, type = "cmd", command = "CL650/pedestal/test/aural_warn_up" },
+  { ch = 5, cc = 13, type = "cmd", command = "CL650/pedestal/test/aural_warn_down" },
+  
+  { ch = 5, cc = 14, type = "cmd", command = "CL650/pedestal/test/sps_test_L" },
+  { ch = 5, cc = 15, type = "cmd", command = "CL650/pedestal/test/sps_test_R" },
+  { ch = 5, cc = 16, type = "cmd", command = "CL650/pedestal/test/sps_test_G_switch" },
+  { ch = 5, cc = 17, type = "cmd", command = "CL650/pedestal/test/smoke_det" },
+  { ch = 5, cc = 18, type = "cmd", command = "CL650/pedestal/test/lamp_test_up" },
+  { ch = 5, cc = 19, type = "cmd", command = "CL650/pedestal/test/lamp_test_down" },
+  
+  { ch = 5, cc = 20, type = "cmd", command = "CL650/pedestal/trim/stab_trim_ch_1" },
+  { ch = 5, cc = 21, type = "cmd", command = "CL650/pedestal/trim/stab_trim_ch_2" },
+  { ch = 5, cc = 22, type = "cmd", command = "CL650/pedestal/trim/mach" },
+  
+  { ch = 5, cc = 23, type = "cmd", command = "CL650/pedestal/yd/disc" },
+  { ch = 5, cc = 24, type = "cmd", command = "CL650/pedestal/yd/yd_1" },
+  { ch = 5, cc = 25, type = "cmd", command = "CL650/pedestal/yd/yd_2" },
+
+  { ch = 5, cc = 42, type = "cmd", command = "CL650/pedestal/gear/nws" },
+  { ch = 5, cc = 44, type = "cmd", command = "CL650/pedestal/gear/anti_skid" },
+  { ch = 5, cc = 46, type = "cmd", command = "CL650/pedestal/gear/anti_skid_test" },
+  { ch = 5, cc = 47, type = "cmd", command = "CL650/pedestal/gear/ovht" },
+  { ch = 5, cc = 48, type = "cmd", command = "CL650/pedestal/gear/fail" },
+
+  { ch = 5, cc = 49, type = "cmd", command = "CL650/pedestal/taws/gs_cover" },
+  { ch = 5, cc = 51, type = "cmd", command = "CL650/pedestal/taws/gs" },
+  { ch = 5, cc = 54, type = "cmd", command = "CL650/pedestal/taws/flaps_cover" },
+  { ch = 5, cc = 56, type = "cmd", command = "CL650/pedestal/taws/flaps" },
+  { ch = 5, cc = 59, type = "cmd", command = "CL650/pedestal/taws/terr_cover" },
+  { ch = 5, cc = 61, type = "cmd", command = "CL650/pedestal/taws/terr" },
+  { ch = 5, cc = 64, type = "cmd", command = "CL650/pedestal/taws/test" },
+  { ch = 5, cc = 65, type = "cmd", command = "CL650/pedestal/gear/horn_cover" },
+  { ch = 5, cc = 67, type = "cmd", command = "CL650/pedestal/gear/horn" },
+
+  { ch = 5, cc = 70, type = "sld", dataref = "CL650/pedestal/gnd_spoilers", value_min = 0, value_max = 2 },
+
+  { ch = 5, cc = 73, type = "cmd", command = "CL650/pedestal/thr_rev/arm_L" },
+  { ch = 5, cc = 75, type = "cmd", command = "CL650/pedestal/thr_rev/arm_R" },
+
+  { ch = 5, cc = 77, type = "cmd", command = "CL650/pedestal/thr_rev/emer_stow_L" },
+  { ch = 5, cc = 80, type = "cmd", command = "CL650/pedestal/thr_rev/emer_stow_R" },
+  
+  # COCKPIT LIGHTING
+  
+  { ch = 5, cc = 26, type = "sld", dataref = "CL650/pedestal/lighting/L/flood" },
+  { ch = 5, cc = 27, type = "sld", dataref = "CL650/pedestal/lighting/L/integ" },
+  { ch = 5, cc = 28, type = "sld", dataref = "CL650/pedestal/lighting/L/pfd" },
+  { ch = 5, cc = 29, type = "sld", dataref = "CL650/pedestal/lighting/L/mfd" },
+  { ch = 5, cc = 37, type = "cmd", command = "CL650/pedestal/lighting/L/floor" },
+  
+  { ch = 5, cc = 30, type = "sld", dataref = "CL650/pedestal/lighting/C/integ" },
+  { ch = 5, cc = 31, type = "sld", dataref = "CL650/pedestal/lighting/C/flood" },
+  { ch = 5, cc = 32, type = "cmd", command = "CL650/pedestal/lighting/C/cb_pnl" },
+  
+  { ch = 5, cc = 33, type = "sld", dataref = "CL650/pedestal/lighting/R/mfd" },
+  { ch = 5, cc = 34, type = "sld", dataref = "CL650/pedestal/lighting/R/pfd" },
+  { ch = 5, cc = 35, type = "sld", dataref = "CL650/pedestal/lighting/R/integ" },
+  { ch = 5, cc = 36, type = "sld", dataref = "CL650/pedestal/lighting/R/flood" },
+  { ch = 5, cc = 38, type = "cmd", command = "CL650/pedestal/lighting/R/floor" },
+  
+  { ch = 5, cc = 39, type = "sld", dataref = "CL650/overhead/map_lt/lh", value_max = 1, value_min = 0 },
+  { ch = 5, cc = 40, type = "sld", dataref = "CL650/overhead/map_lt/rh", value_max = 1, value_min = 0 },
+
+
+  
+  # REVERSIONARY
+
+  { ch = 16, cc = 11, type = "cmd", command = "CL650/pedestal/reversion/eicas_down" },
+  { ch = 16, cc = 12, type = "cmd", command = "CL650/pedestal/reversion/eicas_up" },
+  
+  # TRIMS
+
+  { ch = 16, cc = 13, type = "cmd", command = "CL650/pedestal/trim/ailA_down" },
+  { ch = 16, cc = 13, type = "cmd", command = "CL650/pedestal/trim/ailB_down" },
+  { ch = 16, cc = 14, type = "cmd", command = "CL650/pedestal/trim/ailA_up" },
+  { ch = 16, cc = 14, type = "cmd", command = "CL650/pedestal/trim/ailB_up" },
+  { ch = 16, cc = 15, type = "cmd", command = "CL650/pedestal/trim/rud_down" },
+  { ch = 16, cc = 16, type = "cmd", command = "CL650/pedestal/trim/rud_up" },
+
+  #--------------------------------------------------------------------------------------------------------------------
+  # OVERHEAD
+  #--------------------------------------------------------------------------------------------------------------------
+
+  { ch = 6, cc = 0, type = "cmd", command = "CL650/overhead/elec/batt_master" },
+  { ch = 6, cc = 1, type = "cmd", command = "CL650/overhead/elec/ext_pwr_ac" },
+  { ch = 6, cc = 2, type = "cmd", command = "CL650/overhead/elec/gen_1" },
+  { ch = 6, cc = 3, type = "cmd", command = "CL650/overhead/elec/apu_gen" },
+  { ch = 6, cc = 4, type = "cmd", command = "CL650/overhead/elec/gen_2" },
+  { ch = 6, cc = 5, type = "cmd", command = "CL650/overhead/elec/autoxfer_1" },
+  { ch = 6, cc = 6, type = "cmd", command = "CL650/overhead/elec/autoxfer_2" },
+  { ch = 6, cc = 7, type = "cmd", command = "CL650/overhead/elec/ac_ess_xfer" },
+  { ch = 6, cc = 8, type = "cmd", command = "CL650/overhead/elec/ac_dc_util" },
+  { ch = 6, cc = 9, type = "cmd", command = "CL650/overhead/elec/main_bus_tie" },
+  
+  { ch = 6, cc = 10, type = "cmd", command = "CL650/overhead/apu/pwr_fuel" },
+  { ch = 6, cc = 11, type = "cmd", command = "CL650/overhead/apu/start_stop" },
+
+  { ch = 6, cc = 12, type = "sld", dataref = "CL650/overhead/hyd/hyd_1B", value_min = -1, value_max = 1 },
+  { ch = 6, cc = 13, type = "sld", dataref = "CL650/overhead/hyd/hyd_3A", value_min = -1, value_max = 1 },
+  { ch = 6, cc = 14, type = "sld", dataref = "CL650/overhead/hyd/hyd_3B", value_min = -1, value_max = 1 },
+  { ch = 6, cc = 15, type = "sld", dataref = "CL650/overhead/hyd/hyd_2B", value_min = -1, value_max = 1 },
+  
+  { ch = 6, cc = 19, type = "cmd", command = "CL650/overhead/int_lts/board_up" },
+  { ch = 6, cc = 20, type = "cmd", command = "CL650/overhead/int_lts/board_down" },
+  { ch = 6, cc = 21, type = "cmd", command = "CL650/overhead/int_lts/cabin" },
+  { ch = 6, cc = 22, type = "cmd", command = "CL650/overhead/int_lts/ind_lts" },
+  { ch = 6, cc = 23, type = "sld", dataref = "CL650/overhead/int_lts/overhead", value_min = 0, value_max = 1 },
+  { ch = 6, cc = 24, type = "cmd", command = "CL650/overhead/ext_lts/nav" },
+  { ch = 6, cc = 25, type = "cmd", command = "CL650/overhead/ext_lts/beacon" },
+  { ch = 6, cc = 26, type = "cmd", command = "CL650/overhead/ext_lts/acoll" },
+  { ch = 6, cc = 27, type = "cmd", command = "CL650/overhead/ext_lts/logo" },
+  { ch = 6, cc = 28, type = "cmd", command = "CL650/overhead/ext_lts/wing_insp" },
+  
+  { ch = 6, cc = 29, type = "sld", dataref = "CL650/overhead/land_lts/left", value_min = 0, value_max = 2 },
+  { ch = 6, cc = 30, type = "sld", dataref = "CL650/overhead/land_lts/right", value_min = 0, value_max = 2 },
+  { ch = 6, cc = 31, type = "cmd", command = "CL650/overhead/land_lts/nose" },
+  { ch = 6, cc = 32, type = "cmd", command = "CL650/overhead/land_lts/recog_taxi" },
+  
+  { ch = 6, cc = 35, type = "cmd", command = "CL650/overhead/eng_start/start_L" },
+  { ch = 6, cc = 36, type = "cmd", command = "CL650/overhead/eng_start/start_R" },
+  { ch = 6, cc = 37, type = "cmd", command = "CL650/overhead/eng_start/stop_L" },
+  { ch = 6, cc = 38, type = "cmd", command = "CL650/overhead/eng_start/stop_R" },
+  { ch = 6, cc = 39, type = "cmd", command = "CL650/overhead/ign/A" },
+  { ch = 6, cc = 40, type = "cmd", command = "CL650/overhead/ign/B" },
+  { ch = 6, cc = 41, type = "cmd", command = "CL650/overhead/ign/cont" },
+  
+  { ch = 6, cc = 42, type = "cmd", command = "CL650/overhead/fuel/boost_L" },
+  { ch = 6, cc = 43, type = "cmd", command = "CL650/overhead/fuel/boost_R" },
+  { ch = 6, cc = 44, type = "cmd", command = "CL650/overhead/fuel/xflow_L" },
+  { ch = 6, cc = 45, type = "cmd", command = "CL650/overhead/fuel/xflow_grav" },
+  { ch = 6, cc = 46, type = "cmd", command = "CL650/overhead/fuel/xflow_R" },
+  { ch = 6, cc = 86, type = "cmd", command = "CL650/overhead/fuel/xfer_pri" },
+  { ch = 6, cc = 87, type = "cmd", command = "CL650/overhead/fuel/xfer_pri_cover" },
+  { ch = 6, cc = 88, type = "cmd", command = "CL650/overhead/fuel/xfer_man" },
+  { ch = 6, cc = 89, type = "cmd", command = "CL650/overhead/fuel/xfer_man_cover" },
+  { ch = 6, cc = 90, type = "cmd", command = "CL650/overhead/fuel/xfer_sec" },
+  { ch = 6, cc = 91, type = "cmd", command = "CL650/overhead/fuel/xfer_sec_cover" },
+  { ch = 6, cc = 92, type = "cmd", command = "CL650/overhead/fuel/dump" },
+  { ch = 6, cc = 93, type = "cmd", command = "CL650/overhead/fuel/dump_cover" },
+  
+  { ch = 6, cc = 47, type = "cmd", command = "CL650/overhead/aircond/pack_L" },
+  { ch = 6, cc = 48, type = "cmd", command = "CL650/overhead/aircond/pack_R" },
+  { ch = 6, cc = 49, type = "sld", dataref = "CL650/overhead/aircond/ckpt", value_min = 0, value_max = 2 },
+  { ch = 6, cc = 50, type = "sld", dataref = "CL650/overhead/aircond/cabin", value_min = 0, value_max = 2 },
+  { ch = 6, cc = 53, type = "cmd", command = "CL650/overhead/aircond/cabin_temp_cont_xfer" },
+  { ch = 6, cc = 97, type = "cmd", command = "CL650/overhead/aircond/ram_air_cover" },
+  { ch = 6, cc = 98, type = "cmd", command = "CL650/overhead/aircond/ram_air" },
+  
+  { ch = 6, cc = 54, type = "cmd", command = "CL650/overhead/elt" },
+  
+  { ch = 6, cc = 55, type = "cmd", command = "CL650/overhead/press/man/cont" },
+  { ch = 6, cc = 56, type = "cmd", command = "CL650/overhead/press/emer" },
+  { ch = 6, cc = 57, type = "cmd", command = "CL650/overhead/press/emer_cover" },
+  { ch = 6, cc = 94, type = "sld", dataref = "CL650/overhead/press/man/rate", value_min = 0, value_max = 1 },
+  { ch = 6, cc = 95, type = "cmd", command = "CL650/overhead/press/man/alt_up" },
+  { ch = 6, cc = 96, type = "cmd", command = "CL650/overhead/press/man/alt_down" },
+  
+  { ch = 6, cc = 58, type = "cmd", command = "CL650/overhead/bleed/14st/L" },
+  { ch = 6, cc = 59, type = "cmd", command = "CL650/overhead/bleed/14st/isol" },
+  { ch = 6, cc = 60, type = "cmd", command = "CL650/overhead/bleed/14st/R" },
+  { ch = 6, cc = 61, type = "cmd", command = "CL650/overhead/bleed/10st/L" },
+  { ch = 6, cc = 62, type = "cmd", command = "CL650/overhead/bleed/10st/apu_lcv" },
+  { ch = 6, cc = 63, type = "cmd", command = "CL650/overhead/bleed/10st/isol" },
+  { ch = 6, cc = 64, type = "cmd", command = "CL650/overhead/bleed/10st/R" },
+  
+  # OVERHEAD ANTI ICE
+
+  { ch = 6, cc = 65, type = "sld", dataref = "CL650/overhead/ice/wing/mode", value_min = -1, value_max = 1 },
+  { ch = 6, cc = 66, type = "cmd", command = "CL650/overhead/ice/cowl/L" },
+  { ch = 6, cc = 67, type = "cmd", command = "CL650/overhead/ice/cowl/R" },
+  { ch = 6, cc = 68, type = "cmd", command = "CL650/overhead/ice/test_up" },
+  { ch = 6, cc = 69, type = "cmd", command = "CL650/overhead/ice/test_down" },
+  { ch = 6, cc = 70, type = "sld", dataref = "CL650/overhead/ice/wind/L", value_min = 0, value_max = 2 },
+  { ch = 6, cc = 71, type = "sld", dataref = "CL650/overhead/ice/wind/R", value_min = 0, value_max = 2 },
+  { ch = 6, cc = 72, type = "cmd", command = "CL650/overhead/ice/wind/test" },
+  { ch = 6, cc = 73, type = "cmd", command = "CL650/overhead/ice/probe/L" },
+  { ch = 6, cc = 74, type = "cmd", command = "CL650/overhead/ice/probe/R" },
+  
+  # OVERHEAD SIGNS
+
+  { ch = 6, cc = 79, type = "sld", dataref = "CL650/overhead/signs/no_smoking", value_min = -1, value_max = 1 },
+  { ch = 6, cc = 81, type = "sld", dataref = "CL650/overhead/signs/seatbelt", value_min = -1, value_max = 1 },
+  { ch = 6, cc = 83, type = "sld", dataref = "CL650/overhead/signs/emer_lts", value_min = -1, value_max = 1 },
+  { ch = 6, cc = 85, type = "cmd", command = "CL650/overhead/signs/fdr_event" },
+
+  #--------------------------------------------------------------------------------------------------------------------
+  # CDU
+  #--------------------------------------------------------------------------------------------------------------------
+
+  { ch = 9, cc = 1, type = "cmd", command = "CL650/CDU/1/lsk_l1" },
+  { ch = 9, cc = 2, type = "cmd", command = "CL650/CDU/1/lsk_l2" },
+  { ch = 9, cc = 3, type = "cmd", command = "CL650/CDU/1/lsk_l3" },
+  { ch = 9, cc = 4, type = "cmd", command = "CL650/CDU/1/lsk_l4" },
+  { ch = 9, cc = 5, type = "cmd", command = "CL650/CDU/1/lsk_l5" },
+  { ch = 9, cc = 6, type = "cmd", command = "CL650/CDU/1/lsk_l6" },
+  { ch = 9, cc = 7, type = "cmd", command = "CL650/CDU/1/lsk_r1" },
+  { ch = 9, cc = 8, type = "cmd", command = "CL650/CDU/1/lsk_r2" },
+  { ch = 9, cc = 9, type = "cmd", command = "CL650/CDU/1/lsk_r3" },
+  { ch = 9, cc = 10, type = "cmd", command = "CL650/CDU/1/lsk_r4" },
+  { ch = 9, cc = 11, type = "cmd", command = "CL650/CDU/1/lsk_r5" },
+  { ch = 9, cc = 12, type = "cmd", command = "CL650/CDU/1/lsk_r6" },
+  { ch = 9, cc = 13, type = "cmd", command = "CL650/CDU/1/msg" },
+  { ch = 9, cc = 14, type = "cmd", command = "CL650/CDU/1/exec" },
+  { ch = 9, cc = 15, type = "cmd", command = "CL650/CDU/1/dir" },
+  { ch = 9, cc = 16, type = "cmd", command = "CL650/CDU/1/fpln" },
+  { ch = 9, cc = 17, type = "cmd", command = "CL650/CDU/1/legs" },
+  { ch = 9, cc = 18, type = "cmd", command = "CL650/CDU/1/dep_arr" },
+  { ch = 9, cc = 19, type = "cmd", command = "CL650/CDU/1/perf" },
+  { ch = 9, cc = 20, type = "cmd", command = "CL650/CDU/1/dspl_menu" },
+  { ch = 9, cc = 21, type = "cmd", command = "CL650/CDU/1/mfd_adv" },
+  { ch = 9, cc = 22, type = "cmd", command = "CL650/CDU/1/mfd_data" },
+  { ch = 9, cc = 23, type = "cmd", command = "CL650/CDU/1/prev" },
+  { ch = 9, cc = 24, type = "cmd", command = "CL650/CDU/1/next" },
+  { ch = 9, cc = 25, type = "cmd", command = "CL650/CDU/1/idx" },
+  { ch = 9, cc = 26, type = "cmd", command = "CL650/CDU/1/clr_del" },
+  { ch = 9, cc = 27, type = "cmd", command = "CL650/CDU/1/tun" },
+  { ch = 9, cc = 28, type = "cmd", command = "CL650/CDU/1/brt_up" },
+  { ch = 9, cc = 29, type = "cmd", command = "CL650/CDU/1/brt_down" },
+  { ch = 9, cc = 30, type = "cmd", command = "CL650/CDU/1/char_A" },
+  { ch = 9, cc = 31, type = "cmd", command = "CL650/CDU/1/char_B" },
+  { ch = 9, cc = 32, type = "cmd", command = "CL650/CDU/1/char_C" },
+  { ch = 9, cc = 33, type = "cmd", command = "CL650/CDU/1/char_D" },
+  { ch = 9, cc = 34, type = "cmd", command = "CL650/CDU/1/char_E" },
+  { ch = 9, cc = 35, type = "cmd", command = "CL650/CDU/1/char_F" },
+  { ch = 9, cc = 36, type = "cmd", command = "CL650/CDU/1/char_G" },
+  { ch = 9, cc = 37, type = "cmd", command = "CL650/CDU/1/char_H" },
+  { ch = 9, cc = 38, type = "cmd", command = "CL650/CDU/1/char_I" },
+  { ch = 9, cc = 39, type = "cmd", command = "CL650/CDU/1/char_J" },
+  { ch = 9, cc = 40, type = "cmd", command = "CL650/CDU/1/char_K" },
+  { ch = 9, cc = 41, type = "cmd", command = "CL650/CDU/1/char_L" },
+  { ch = 9, cc = 42, type = "cmd", command = "CL650/CDU/1/char_M" },
+  { ch = 9, cc = 43, type = "cmd", command = "CL650/CDU/1/char_N" },
+  { ch = 9, cc = 44, type = "cmd", command = "CL650/CDU/1/char_O" },
+  { ch = 9, cc = 45, type = "cmd", command = "CL650/CDU/1/char_P" },
+  { ch = 9, cc = 46, type = "cmd", command = "CL650/CDU/1/char_Q" },
+  { ch = 9, cc = 47, type = "cmd", command = "CL650/CDU/1/char_R" },
+  { ch = 9, cc = 48, type = "cmd", command = "CL650/CDU/1/char_S" },
+  { ch = 9, cc = 49, type = "cmd", command = "CL650/CDU/1/char_T" },
+  { ch = 9, cc = 50, type = "cmd", command = "CL650/CDU/1/char_U" },
+  { ch = 9, cc = 51, type = "cmd", command = "CL650/CDU/1/char_V" },
+  { ch = 9, cc = 52, type = "cmd", command = "CL650/CDU/1/char_W" },
+  { ch = 9, cc = 53, type = "cmd", command = "CL650/CDU/1/char_X" },
+  { ch = 9, cc = 54, type = "cmd", command = "CL650/CDU/1/char_Y" },
+  { ch = 9, cc = 55, type = "cmd", command = "CL650/CDU/1/char_Z" },
+  { ch = 9, cc = 56, type = "cmd", command = "CL650/CDU/1/char_space" },
+  { ch = 9, cc = 57, type = "cmd", command = "CL650/CDU/1/char_slash" },
+  { ch = 9, cc = 58, type = "cmd", command = "CL650/CDU/1/char_1" },
+  { ch = 9, cc = 59, type = "cmd", command = "CL650/CDU/1/char_2" },
+  { ch = 9, cc = 60, type = "cmd", command = "CL650/CDU/1/char_3" },
+  { ch = 9, cc = 61, type = "cmd", command = "CL650/CDU/1/char_4" },
+  { ch = 9, cc = 62, type = "cmd", command = "CL650/CDU/1/char_5" },
+  { ch = 9, cc = 63, type = "cmd", command = "CL650/CDU/1/char_6" },
+  { ch = 9, cc = 64, type = "cmd", command = "CL650/CDU/1/char_7" },
+  { ch = 9, cc = 65, type = "cmd", command = "CL650/CDU/1/char_8" },
+  { ch = 9, cc = 66, type = "cmd", command = "CL650/CDU/1/char_9" },
+  { ch = 9, cc = 67, type = "cmd", command = "CL650/CDU/1/char_period" },
+  { ch = 9, cc = 68, type = "cmd", command = "CL650/CDU/1/char_0" },
+  { ch = 9, cc = 69, type = "cmd", command = "CL650/CDU/1/char_plus_minus" },
+
+  { ch = 10, cc = 1, type = "cmd", command = "CL650/CDU/2/lsk_l1" },
+  { ch = 10, cc = 2, type = "cmd", command = "CL650/CDU/2/lsk_l2" },
+  { ch = 10, cc = 3, type = "cmd", command = "CL650/CDU/2/lsk_l3" },
+  { ch = 10, cc = 4, type = "cmd", command = "CL650/CDU/2/lsk_l4" },
+  { ch = 10, cc = 5, type = "cmd", command = "CL650/CDU/2/lsk_l5" },
+  { ch = 10, cc = 6, type = "cmd", command = "CL650/CDU/2/lsk_l6" },
+  { ch = 10, cc = 7, type = "cmd", command = "CL650/CDU/2/lsk_r1" },
+  { ch = 10, cc = 8, type = "cmd", command = "CL650/CDU/2/lsk_r2" },
+  { ch = 10, cc = 9, type = "cmd", command = "CL650/CDU/2/lsk_r3" },
+  { ch = 10, cc = 10, type = "cmd", command = "CL650/CDU/2/lsk_r4" },
+  { ch = 10, cc = 11, type = "cmd", command = "CL650/CDU/2/lsk_r5" },
+  { ch = 10, cc = 12, type = "cmd", command = "CL650/CDU/2/lsk_r6" },
+  { ch = 10, cc = 13, type = "cmd", command = "CL650/CDU/2/msg" },
+  { ch = 10, cc = 14, type = "cmd", command = "CL650/CDU/2/exec" },
+  { ch = 10, cc = 15, type = "cmd", command = "CL650/CDU/2/dir" },
+  { ch = 10, cc = 16, type = "cmd", command = "CL650/CDU/2/fpln" },
+  { ch = 10, cc = 17, type = "cmd", command = "CL650/CDU/2/legs" },
+  { ch = 10, cc = 18, type = "cmd", command = "CL650/CDU/2/dep_arr" },
+  { ch = 10, cc = 19, type = "cmd", command = "CL650/CDU/2/perf" },
+  { ch = 10, cc = 20, type = "cmd", command = "CL650/CDU/2/dspl_menu" },
+  { ch = 10, cc = 21, type = "cmd", command = "CL650/CDU/2/mfd_adv" },
+  { ch = 10, cc = 22, type = "cmd", command = "CL650/CDU/2/mfd_data" },
+  { ch = 10, cc = 23, type = "cmd", command = "CL650/CDU/2/prev" },
+  { ch = 10, cc = 24, type = "cmd", command = "CL650/CDU/2/next" },
+  { ch = 10, cc = 25, type = "cmd", command = "CL650/CDU/2/idx" },
+  { ch = 10, cc = 26, type = "cmd", command = "CL650/CDU/2/clr_del" },
+  { ch = 10, cc = 27, type = "cmd", command = "CL650/CDU/2/tun" },
+  { ch = 10, cc = 28, type = "cmd", command = "CL650/CDU/2/brt_up" },
+  { ch = 10, cc = 29, type = "cmd", command = "CL650/CDU/2/brt_down" },
+  { ch = 10, cc = 30, type = "cmd", command = "CL650/CDU/2/char_A" },
+  { ch = 10, cc = 31, type = "cmd", command = "CL650/CDU/2/char_B" },
+  { ch = 10, cc = 32, type = "cmd", command = "CL650/CDU/2/char_C" },
+  { ch = 10, cc = 33, type = "cmd", command = "CL650/CDU/2/char_D" },
+  { ch = 10, cc = 34, type = "cmd", command = "CL650/CDU/2/char_E" },
+  { ch = 10, cc = 35, type = "cmd", command = "CL650/CDU/2/char_F" },
+  { ch = 10, cc = 36, type = "cmd", command = "CL650/CDU/2/char_G" },
+  { ch = 10, cc = 37, type = "cmd", command = "CL650/CDU/2/char_H" },
+  { ch = 10, cc = 38, type = "cmd", command = "CL650/CDU/2/char_I" },
+  { ch = 10, cc = 39, type = "cmd", command = "CL650/CDU/2/char_J" },
+  { ch = 10, cc = 40, type = "cmd", command = "CL650/CDU/2/char_K" },
+  { ch = 10, cc = 41, type = "cmd", command = "CL650/CDU/2/char_L" },
+  { ch = 10, cc = 42, type = "cmd", command = "CL650/CDU/2/char_M" },
+  { ch = 10, cc = 43, type = "cmd", command = "CL650/CDU/2/char_N" },
+  { ch = 10, cc = 44, type = "cmd", command = "CL650/CDU/2/char_O" },
+  { ch = 10, cc = 45, type = "cmd", command = "CL650/CDU/2/char_P" },
+  { ch = 10, cc = 46, type = "cmd", command = "CL650/CDU/2/char_Q" },
+  { ch = 10, cc = 47, type = "cmd", command = "CL650/CDU/2/char_R" },
+  { ch = 10, cc = 48, type = "cmd", command = "CL650/CDU/2/char_S" },
+  { ch = 10, cc = 49, type = "cmd", command = "CL650/CDU/2/char_T" },
+  { ch = 10, cc = 50, type = "cmd", command = "CL650/CDU/2/char_U" },
+  { ch = 10, cc = 51, type = "cmd", command = "CL650/CDU/2/char_V" },
+  { ch = 10, cc = 52, type = "cmd", command = "CL650/CDU/2/char_W" },
+  { ch = 10, cc = 53, type = "cmd", command = "CL650/CDU/2/char_X" },
+  { ch = 10, cc = 54, type = "cmd", command = "CL650/CDU/2/char_Y" },
+  { ch = 10, cc = 55, type = "cmd", command = "CL650/CDU/2/char_Z" },
+  { ch = 10, cc = 56, type = "cmd", command = "CL650/CDU/2/char_space" },
+  { ch = 10, cc = 57, type = "cmd", command = "CL650/CDU/2/char_slash" },
+  { ch = 10, cc = 58, type = "cmd", command = "CL650/CDU/2/char_1" },
+  { ch = 10, cc = 59, type = "cmd", command = "CL650/CDU/2/char_2" },
+  { ch = 10, cc = 60, type = "cmd", command = "CL650/CDU/2/char_3" },
+  { ch = 10, cc = 61, type = "cmd", command = "CL650/CDU/2/char_4" },
+  { ch = 10, cc = 62, type = "cmd", command = "CL650/CDU/2/char_5" },
+  { ch = 10, cc = 63, type = "cmd", command = "CL650/CDU/2/char_6" },
+  { ch = 10, cc = 64, type = "cmd", command = "CL650/CDU/2/char_7" },
+  { ch = 10, cc = 65, type = "cmd", command = "CL650/CDU/2/char_8" },
+  { ch = 10, cc = 66, type = "cmd", command = "CL650/CDU/2/char_9" },
+  { ch = 10, cc = 67, type = "cmd", command = "CL650/CDU/2/char_period" },
+  { ch = 10, cc = 68, type = "cmd", command = "CL650/CDU/2/char_0" },
+  { ch = 10, cc = 69, type = "cmd", command = "CL650/CDU/2/char_plus_minus" },
+
+  { ch = 11, cc = 2, type = "cmd", command = "CL650/CDU/3/lsk_l2" },
+  { ch = 11, cc = 1, type = "cmd", command = "CL650/CDU/3/lsk_l1" },
+  { ch = 11, cc = 3, type = "cmd", command = "CL650/CDU/3/lsk_l3" },
+  { ch = 11, cc = 4, type = "cmd", command = "CL650/CDU/3/lsk_l4" },
+  { ch = 11, cc = 5, type = "cmd", command = "CL650/CDU/3/lsk_l5" },
+  { ch = 11, cc = 6, type = "cmd", command = "CL650/CDU/3/lsk_l6" },
+  { ch = 11, cc = 7, type = "cmd", command = "CL650/CDU/3/lsk_r1" },
+  { ch = 11, cc = 8, type = "cmd", command = "CL650/CDU/3/lsk_r2" },
+  { ch = 11, cc = 9, type = "cmd", command = "CL650/CDU/3/lsk_r3" },
+  { ch = 11, cc = 10, type = "cmd", command = "CL650/CDU/3/lsk_r4" },
+  { ch = 11, cc = 11, type = "cmd", command = "CL650/CDU/3/lsk_r5" },
+  { ch = 11, cc = 12, type = "cmd", command = "CL650/CDU/3/lsk_r6" },
+  { ch = 11, cc = 13, type = "cmd", command = "CL650/CDU/3/msg" },
+  { ch = 11, cc = 14, type = "cmd", command = "CL650/CDU/3/exec" },
+  { ch = 11, cc = 15, type = "cmd", command = "CL650/CDU/3/dir" },
+  { ch = 11, cc = 16, type = "cmd", command = "CL650/CDU/3/fpln" },
+  { ch = 11, cc = 17, type = "cmd", command = "CL650/CDU/3/legs" },
+  { ch = 11, cc = 18, type = "cmd", command = "CL650/CDU/3/dep_arr" },
+  { ch = 11, cc = 19, type = "cmd", command = "CL650/CDU/3/perf" },
+  { ch = 11, cc = 20, type = "cmd", command = "CL650/CDU/3/dspl_menu" },
+  { ch = 11, cc = 21, type = "cmd", command = "CL650/CDU/3/mfd_adv" },
+  { ch = 11, cc = 22, type = "cmd", command = "CL650/CDU/3/mfd_data" },
+  { ch = 11, cc = 23, type = "cmd", command = "CL650/CDU/3/prev" },
+  { ch = 11, cc = 24, type = "cmd", command = "CL650/CDU/3/next" },
+  { ch = 11, cc = 25, type = "cmd", command = "CL650/CDU/3/idx" },
+  { ch = 11, cc = 26, type = "cmd", command = "CL650/CDU/3/clr_del" },
+  { ch = 11, cc = 27, type = "cmd", command = "CL650/CDU/3/tun" },
+  { ch = 11, cc = 28, type = "cmd", command = "CL650/CDU/3/brt_up" },
+  { ch = 11, cc = 29, type = "cmd", command = "CL650/CDU/3/brt_down" },
+  { ch = 11, cc = 30, type = "cmd", command = "CL650/CDU/3/char_A" },
+  { ch = 11, cc = 31, type = "cmd", command = "CL650/CDU/3/char_B" },
+  { ch = 11, cc = 32, type = "cmd", command = "CL650/CDU/3/char_C" },
+  { ch = 11, cc = 33, type = "cmd", command = "CL650/CDU/3/char_D" },
+  { ch = 11, cc = 34, type = "cmd", command = "CL650/CDU/3/char_E" },
+  { ch = 11, cc = 35, type = "cmd", command = "CL650/CDU/3/char_F" },
+  { ch = 11, cc = 36, type = "cmd", command = "CL650/CDU/3/char_G" },
+  { ch = 11, cc = 37, type = "cmd", command = "CL650/CDU/3/char_H" },
+  { ch = 11, cc = 38, type = "cmd", command = "CL650/CDU/3/char_I" },
+  { ch = 11, cc = 39, type = "cmd", command = "CL650/CDU/3/char_J" },
+  { ch = 11, cc = 40, type = "cmd", command = "CL650/CDU/3/char_K" },
+  { ch = 11, cc = 41, type = "cmd", command = "CL650/CDU/3/char_L" },
+  { ch = 11, cc = 42, type = "cmd", command = "CL650/CDU/3/char_M" },
+  { ch = 11, cc = 43, type = "cmd", command = "CL650/CDU/3/char_N" },
+  { ch = 11, cc = 44, type = "cmd", command = "CL650/CDU/3/char_O" },
+  { ch = 11, cc = 45, type = "cmd", command = "CL650/CDU/3/char_P" },
+  { ch = 11, cc = 46, type = "cmd", command = "CL650/CDU/3/char_Q" },
+  { ch = 11, cc = 47, type = "cmd", command = "CL650/CDU/3/char_R" },
+  { ch = 11, cc = 48, type = "cmd", command = "CL650/CDU/3/char_S" },
+  { ch = 11, cc = 49, type = "cmd", command = "CL650/CDU/3/char_T" },
+  { ch = 11, cc = 50, type = "cmd", command = "CL650/CDU/3/char_U" },
+  { ch = 11, cc = 51, type = "cmd", command = "CL650/CDU/3/char_V" },
+  { ch = 11, cc = 52, type = "cmd", command = "CL650/CDU/3/char_W" },
+  { ch = 11, cc = 53, type = "cmd", command = "CL650/CDU/3/char_X" },
+  { ch = 11, cc = 54, type = "cmd", command = "CL650/CDU/3/char_Y" },
+  { ch = 11, cc = 55, type = "cmd", command = "CL650/CDU/3/char_Z" },
+  { ch = 11, cc = 56, type = "cmd", command = "CL650/CDU/3/char_space" },
+  { ch = 11, cc = 57, type = "cmd", command = "CL650/CDU/3/char_slash" },
+  { ch = 11, cc = 58, type = "cmd", command = "CL650/CDU/3/char_1" },
+  { ch = 11, cc = 59, type = "cmd", command = "CL650/CDU/3/char_2" },
+  { ch = 11, cc = 60, type = "cmd", command = "CL650/CDU/3/char_3" },
+  { ch = 11, cc = 61, type = "cmd", command = "CL650/CDU/3/char_4" },
+  { ch = 11, cc = 62, type = "cmd", command = "CL650/CDU/3/char_5" },
+  { ch = 11, cc = 63, type = "cmd", command = "CL650/CDU/3/char_6" },
+  { ch = 11, cc = 64, type = "cmd", command = "CL650/CDU/3/char_7" },
+  { ch = 11, cc = 65, type = "cmd", command = "CL650/CDU/3/char_8" },
+  { ch = 11, cc = 66, type = "cmd", command = "CL650/CDU/3/char_9" },
+  { ch = 11, cc = 67, type = "cmd", command = "CL650/CDU/3/char_period" },
+  { ch = 11, cc = 68, type = "cmd", command = "CL650/CDU/3/char_0" },
+  { ch = 11, cc = 69, type = "cmd", command = "CL650/CDU/3/char_plus_minus" },
+
+  
+]
+
+mapping_out = [
+  #--------------------------------------------------------------------------------------------------------------------
+  # OUTPUTS
+  #--------------------------------------------------------------------------------------------------------------------
+  
+  # Buttons Upper Row
+  { ch = 2, cc = 73, type = "drf", dataref = ["CL650/lamps/glareshield/ats_L", "CL650/lamps/glareshield/ats_R"], value_off = "0" },
+  { ch = 2, cc = 52, type = "drf", dataref = ["CL650/lamps/glareshield/FCP/vs_1", "CL650/lamps/glareshield/FCP/vs_2"], value_off = "0" },
+  { ch = 2, cc = 53, type = "drf", dataref = ["CL650/lamps/glareshield/FCP/flc_1", "CL650/lamps/glareshield/FCP/flc_2"], value_off = "0" },
+  { ch = 2, cc = 55, type = "drf", dataref = ["CL650/lamps/glareshield/FCP/hdg_1", "CL650/lamps/glareshield/FCP/hdg_2"], value_off = "0" },
+  { ch = 2, cc = 59, type = "drf", dataref = ["CL650/lamps/glareshield/FCP/ap_eng_1", "CL650/lamps/glareshield/FCP/ap_eng_2"], value_off = "0" },
+  { ch = 2, cc = 57, type = "drf", dataref = ["CL650/lamps/glareshield/FCP/alt_1", "CL650/lamps/glareshield/FCP/alt_2"], value_off = "0" },
+  { ch = 2, cc = 58, type = "drf", dataref = ["CL650/lamps/glareshield/FCP/xfr_1", "CL650/lamps/glareshield/FCP/xfr_2"], value_off = "0" },
+  
+  # Buttons Lower Row
+  { ch = 16, cc = 3, type = "drf", dataref = ["CL650/lamps/glareshield/master_warn_L"], value_off = "0" },
+  { ch = 16, cc = 4, type = "drf", dataref = ["CL650/lamps/glareshield/master_warn_R"], value_off = "0" },
+  { ch = 16, cc = 5, type = "drf", dataref = ["CL650/lamps/glareshield/master_caut_L"], value_off = "0" },
+  { ch = 16, cc = 6, type = "drf", dataref = ["CL650/lamps/glareshield/master_caut_R"], value_off = "0" },
+  { ch = 2, cc = 61, type = "drf", dataref = ["CL650/lamps/glareshield/FCP/vnav_1"], value_off = "0" },
+  { ch = 2, cc = 56, type = "drf", dataref = ["CL650/lamps/glareshield/FCP/appr_1"], value_off = "0" },
+  { ch = 2, cc = 54, type = "drf", dataref = ["CL650/lamps/glareshield/FCP/nav_1"], value_off = "0" },
+  { ch = 2, cc = 63, type = "drf", dataref = ["CL650/lamps/glareshield/FCP/bc_1"], value_off = "0" },
+  { ch = 2, cc = 15, type = "drf", dataref = ["CL650/FCP/ap_disc_value"], value_off = "0" },
+  { ch = 2, cc = 62, type = "drf", dataref = ["CL650/lamps/glareshield/FCP/half_bank_1"], value_off = "0" },
+  { ch = 2, cc = 64, type = "drf", dataref = ["CL650/lamps/glareshield/FCP/turb_1"], value_off = "0" },
+  
+  # PEDESTAL
+
+  { ch = 5, cc = 101, type = "drf", dataref = ["CL650/lamps/pedestal/trim/mach_trim"], value_off = "0" },
+  { ch = 5, cc = 102, type = "drf", dataref = ["CL650/pedestal/eng_cont/apr_value"], value_on = "1", value_off = "0" },
+  { ch = 5, cc = 103, type = "drf", dataref = ["CL650/pedestal/eng_cont/eng_speed_L"], value_on = "1", value_off = "0" },
+  { ch = 5, cc = 104, type = "drf", dataref = ["CL650/pedestal/eng_cont/eng_speed_R"], value_on = "1", value_off = "0" },
+
+  { ch = 5, cc = 39, type = "drf", dataref = ["CL650/pedestal/lighting/L/floor"], value_off = "0", value_on = "1" },
+  { ch = 5, cc = 41, type = "drf", dataref = ["CL650/pedestal/lighting/C/cb_pnl"], value_off = "0", value_on = "1" },
+  { ch = 5, cc = 40, type = "drf", dataref = ["CL650/pedestal/lighting/R/floor"], value_off = "0", value_on = "1" },
+  { ch = 5, cc = 43, type = "drf", dataref = ["CL650/pedestal/gear/nws"], value_off = "0" },
+  { ch = 5, cc = 45, type = "drf", dataref = ["CL650/pedestal/gear/anti_skid"], value_off = "0" },
+
+  { ch = 5, cc = 50, type = "drf", dataref = ["CL650/pedestal/taws/gs_cover"], value_off = "0" },
+  { ch = 5, cc = 52, type = "drf", dataref = ["CL650/pedestal/taws/gs"], value_off = "0" },
+  { ch = 5, cc = 53, type = "drf", dataref = ["CL650/lamps/pedestal/taws/gs"], value_off = "0" },
+  { ch = 5, cc = 55, type = "drf", dataref = ["CL650/pedestal/taws/flaps_cover"], value_off = "0" },
+  { ch = 5, cc = 57, type = "drf", dataref = ["CL650/pedestal/taws/flaps"], value_off = "0" },
+  { ch = 5, cc = 58, type = "drf", dataref = ["CL650/lamps/pedestal/taws/flaps"], value_off = "0" },
+  { ch = 5, cc = 60, type = "drf", dataref = ["CL650/pedestal/taws/terr_cover"], value_off = "0" },
+  { ch = 5, cc = 62, type = "drf", dataref = ["CL650/pedestal/taws/terr"], value_off = "0" },
+  { ch = 5, cc = 63, type = "drf", dataref = ["CL650/lamps/pedestal/taws/terr"], value_off = "0" },
+  { ch = 5, cc = 66, type = "drf", dataref = ["CL650/pedestal/gear/horn_cover"], value_off = "0" },
+  { ch = 5, cc = 68, type = "drf", dataref = ["CL650/pedestal/gear/horn"], value_off = "0" },
+  { ch = 5, cc = 69, type = "drf", dataref = ["CL650/lamps/pedestal/gear/horn"], value_off = "0" },
+
+  { ch = 5, cc = 71, type = "drf", dataref = "CL650/pedestal/gnd_spoilers", value_on = "2", value_off = "0" },
+  { ch = 5, cc = 72, type = "drf", dataref = "CL650/pedestal/gnd_spoilers", value_on = "-1" , value_off = "1"},
+
+  { ch = 5, cc = 74, type = "drf", dataref = ["CL650/pedestal/thr_rev/arm_L"], value_off = "0" },
+  { ch = 5, cc = 76, type = "drf", dataref = ["CL650/pedestal/thr_rev/arm_R"], value_off = "0" },
+
+  { ch = 5, cc = 78, type = "drf", dataref = ["CL650/pedestal/thr_rev/emer_stow_L"], value_off = "0" },
+  { ch = 5, cc = 79, type = "drf", dataref = ["CL650/lamps/pedestal/thr_rev/left"], value_off = "0" },
+  { ch = 5, cc = 81, type = "drf", dataref = ["CL650/pedestal/thr_rev/emer_stow_R"], value_off = "0" },
+  { ch = 5, cc = 82, type = "drf", dataref = ["CL650/lamps/pedestal/thr_rev/right"], value_off = "0" },
+
+  # OVERHEAD ELEC
+
+  { ch = 7, cc = 0, type = "drf", dataref = "CL650/overhead/elec/batt_master", value_off = "0" },
+  { ch = 7, cc = 1, type = "drf", dataref = "CL650/overhead/elec/ext_pwr_ac", value_off = "0" },
+  { ch = 7, cc = 2, type = "drf", dataref = "CL650/overhead/elec/gen_1", value_off = "0" },
+  { ch = 7, cc = 3, type = "drf", dataref = "CL650/overhead/elec/apu_gen", value_off = "0" },
+  { ch = 7, cc = 4, type = "drf", dataref = "CL650/overhead/elec/gen_2", value_off = "0" },
+  { ch = 7, cc = 5, type = "drf", dataref = "CL650/overhead/elec/autoxfer_1", value_off = "0" },
+  { ch = 7, cc = 6, type = "drf", dataref = "CL650/overhead/elec/autoxfer_2", value_off = "0" },
+  { ch = 7, cc = 7, type = "drf", dataref = "CL650/overhead/elec/ac_ess_xfer", value_off = "0" },
+  { ch = 7, cc = 8, type = "drf", dataref = "CL650/overhead/elec/ac_dc_util", value_off = "0" },
+  { ch = 7, cc = 9, type = "drf", dataref = "CL650/overhead/elec/main_bus_tie", value_off = "0" },
+  
+  { ch = 8, cc = 0, type = "drf", dataref = "CL650/lamps/overhead/elec/ext_pwr_ac/avail", value_off = "0" },
+  { ch = 8, cc = 1, type = "drf", dataref = "CL650/lamps/overhead/elec/ext_pwr_ac/in_use", value_off = "0" },
+  { ch = 8, cc = 2, type = "drf", dataref = "CL650/lamps/overhead/elec/ext_pwr_dc/in_use", value_off = "0" },
+  { ch = 8, cc = 3, type = "drf", dataref = "CL650/lamps/overhead/elec/autoxfer_1/fail", value_off = "0" },
+  { ch = 8, cc = 4, type = "drf", dataref = "CL650/lamps/overhead/elec/autoxfer_1/off", value_off = "0" },
+  { ch = 8, cc = 5, type = "drf", dataref = "CL650/lamps/overhead/elec/autoxfer_2/fail", value_off = "0" },
+  { ch = 8, cc = 6, type = "drf", dataref = "CL650/lamps/overhead/elec/autoxfer_2/off", value_off = "0" },
+  { ch = 8, cc = 7, type = "drf", dataref = "CL650/lamps/overhead/elec/ac_ess_xfer", value_off = "0" },
+  { ch = 8, cc = 8, type = "drf", dataref = "CL650/lamps/overhead/elec/ac_dc_util", value_off = "0" },
+  { ch = 8, cc = 9, type = "drf", dataref = "CL650/lamps/overhead/elec/main_bus_tie", value_off = "0" },
+  
+  # OVERHEAD APU
+  
+  { ch = 7, cc = 10, type = "drf", dataref = "CL650/overhead/apu/pwr_fuel", value_off = "0" },
+  { ch = 7, cc = 11, type = "drf", dataref = "CL650/overhead/apu/start_stop", value_off = "0" },
+  
+  { ch = 8, cc = 10, type = "drf", dataref = "CL650/lamps/overhead/apu/pwr_fuel/pump_fail", value_off = "0" },
+  { ch = 8, cc = 11, type = "drf", dataref = "CL650/lamps/overhead/apu/pwr_fuel/sov_closed", value_off = "0" },
+  { ch = 8, cc = 12, type = "drf", dataref = "CL650/lamps/overhead/apu/start_stop/start", value_off = "0" },
+  { ch = 8, cc = 13, type = "drf", dataref = "CL650/lamps/overhead/apu/start_stop/avail", value_off = "0" },
+  
+  # OVERHEAD HYD
+  
+  { ch = 7, cc = 12, type = "drf", dataref = "CL650/overhead/hyd/hyd_1B", value_off = "-1", value_on = "1"  },
+  { ch = 7, cc = 13, type = "drf", dataref = "CL650/overhead/hyd/hyd_1B", value_on = "2", value_off = "0"  },
+  { ch = 7, cc = 14, type = "drf", dataref = "CL650/overhead/hyd/hyd_3A", value_on = "0", value_off = "1"  },
+  { ch = 7, cc = 15, type = "drf", dataref = "CL650/overhead/hyd/hyd_3B", value_off = "-1", value_on = "1"  },
+  { ch = 7, cc = 16, type = "drf", dataref = "CL650/overhead/hyd/hyd_3B", value_on = "2", value_off = "0"  },
+  { ch = 7, cc = 17, type = "drf", dataref = "CL650/overhead/hyd/hyd_2B", value_off = "-1", value_on = "1"  },
+  { ch = 7, cc = 18, type = "drf", dataref = "CL650/overhead/hyd/hyd_2B", value_on = "2", value_off = "0"  },
+
+  # OVERHEAD LTS
+
+  #{ ch = 7, cc = 19, type = "drf", dataref = "CL650/overhead/int_lts/board", value_on = "1" },
+  #{ ch = 7, cc = 20, type = "drf", dataref = "CL650/overhead/int_lts/board", value_on = "-1" },
+  { ch = 7, cc = 21, type = "drf", dataref = "CL650/overhead/int_lts/cabin", value_on = "1" },
+  { ch = 7, cc = 22, type = "drf", dataref = "CL650/overhead/int_lts/ind_lts", value_on = "0" },
+  { ch = 7, cc = 24, type = "drf", dataref = "CL650/overhead/ext_lts/nav", value_on = "1" },
+  { ch = 7, cc = 25, type = "drf", dataref = "CL650/overhead/ext_lts/beacon", value_on = "1" },
+  { ch = 7, cc = 26, type = "drf", dataref = "CL650/overhead/ext_lts/acoll", value_on = "1" },
+  { ch = 7, cc = 27, type = "drf", dataref = "CL650/overhead/ext_lts/logo", value_on = "1" },
+  { ch = 7, cc = 28, type = "drf", dataref = "CL650/overhead/ext_lts/wing_insp", value_on = "1" },
+
+  { ch = 7, cc = 29, type = "drf", dataref = "CL650/overhead/land_lts/left", value_on = "2", value_off = "0" },
+  { ch = 7, cc = 30, type = "drf", dataref = "CL650/overhead/land_lts/left", value_on = "-1", value_off = "1" },
+  { ch = 7, cc = 31, type = "drf", dataref = "CL650/overhead/land_lts/right", value_on = "2", value_off = "0" },
+  { ch = 7, cc = 32, type = "drf", dataref = "CL650/overhead/land_lts/right", value_on = "-1" , value_off = "1"},
+  { ch = 7, cc = 33, type = "drf", dataref = "CL650/overhead/land_lts/nose", value_off = "0" },
+  { ch = 7, cc = 34, type = "drf", dataref = "CL650/overhead/land_lts/recog_taxi", value_on = "1" },
+
+  # OVERHEAD ENG_START
+
+  { ch = 7, cc = 35, type = "drf", dataref = "CL650/overhead/eng_start/start_L", value_off = "0" },
+  { ch = 7, cc = 36, type = "drf", dataref = "CL650/overhead/eng_start/start_R", value_off = "0" },
+  { ch = 7, cc = 38, type = "drf", dataref = "CL650/overhead/eng_start/stop_R", value_off = "0" },
+  { ch = 7, cc = 37, type = "drf", dataref = "CL650/overhead/eng_start/stop_L", value_off = "0" },
+  { ch = 7, cc = 39, type = "drf", dataref = "CL650/overhead/ign/A", value_off = "0" },
+  { ch = 7, cc = 40, type = "drf", dataref = "CL650/overhead/ign/B", value_off = "0" },
+  { ch = 7, cc = 41, type = "drf", dataref = "CL650/overhead/ign/cont", value_off = "0" },
+
+  { ch = 8, cc = 14, type = "drf", dataref = "CL650/lamps/overhead/eng_start/left/start", value_off = "0" },
+  { ch = 8, cc = 15, type = "drf", dataref = "CL650/lamps/overhead/eng_start/right/start", value_off = "0" },
+  { ch = 8, cc = 16, type = "drf", dataref = "CL650/lamps/overhead/eng_start/left/stop", value_off = "0" },
+  { ch = 8, cc = 17, type = "drf", dataref = "CL650/lamps/overhead/eng_start/right/stop", value_off = "0" },
+  { ch = 8, cc = 18, type = "drf", dataref = "CL650/lamps/overhead/ignition/A/arm", value_off = "0" },
+  { ch = 8, cc = 19, type = "drf", dataref = "CL650/lamps/overhead/ignition/A/on", value_off = "0" },
+  { ch = 8, cc = 20, type = "drf", dataref = "CL650/lamps/overhead/ignition/B/arm", value_off = "0" },
+  { ch = 8, cc = 21, type = "drf", dataref = "CL650/lamps/overhead/ignition/B/on", value_off = "0" },
+  { ch = 8, cc = 22, type = "drf", dataref = "CL650/lamps/overhead/ignition/cont", value_off = "0" },
+  
+  # OVERHEAD FUEL
+
+  { ch = 7, cc = 42, type = "drf", dataref = "CL650/overhead/fuel/boost_L", value_off = "0" },
+  { ch = 7, cc = 43, type = "drf", dataref = "CL650/overhead/fuel/boost_R", value_off = "0" },
+  { ch = 7, cc = 44, type = "drf", dataref = "CL650/overhead/fuel/xflow_L", value_off = "0" },
+  { ch = 7, cc = 45, type = "drf", dataref = "CL650/overhead/fuel/xflow_grav", value_off = "0" },
+  { ch = 7, cc = 46, type = "drf", dataref = "CL650/overhead/fuel/xflow_R", value_off = "0" },
+  { ch = 7, cc = 86, type = "drf", dataref = "CL650/overhead/fuel/xfer_pri", value_off = "0" },
+  { ch = 7, cc = 87, type = "drf", dataref = "CL650/overhead/fuel/xfer_pri_cover", value_off = "0" },
+  { ch = 7, cc = 88, type = "drf", dataref = "CL650/overhead/fuel/xfer_man", value_off = "0" },
+  { ch = 7, cc = 89, type = "drf", dataref = "CL650/overhead/fuel/xfer_man_cover", value_off = "0" },
+  { ch = 7, cc = 90, type = "drf", dataref = "CL650/overhead/fuel/xfer_sec", value_off = "0" },
+  { ch = 7, cc = 91, type = "drf", dataref = "CL650/overhead/fuel/xfer_sec_cover", value_off = "0" },
+  { ch = 7, cc = 92, type = "drf", dataref = "CL650/overhead/fuel/dump", value_off = "0" },
+  { ch = 7, cc = 93, type = "drf", dataref = "CL650/overhead/fuel/dump_cover", value_off = "0" },
+
+
+  { ch = 8, cc = 23, type = "drf", dataref = "CL650/lamps/overhead/fuel/boost/left/inop", value_off = "0" },
+  { ch = 8, cc = 24, type = "drf", dataref = "CL650/lamps/overhead/fuel/boost/left/on", value_off = "0" },
+  { ch = 8, cc = 25, type = "drf", dataref = "CL650/lamps/overhead/fuel/boost/right/inop", value_off = "0" },
+  { ch = 8, cc = 26, type = "drf", dataref = "CL650/lamps/overhead/fuel/boost/right/on", value_off = "0" },
+  { ch = 8, cc = 27, type = "drf", dataref = "CL650/lamps/overhead/fuel/xflow/l_to_aux", value_off = "0" },
+  { ch = 8, cc = 28, type = "drf", dataref = "CL650/lamps/overhead/fuel/xflow/gravity", value_off = "0" },
+  { ch = 8, cc = 29, type = "drf", dataref = "CL650/lamps/overhead/fuel/xflow/r_to_aux", value_off = "0" },
+  { ch = 8, cc = 54, type = "drf", dataref = "CL650/lamps/overhead/fuel/xfer/pri/fail", value_off = "0" },
+  { ch = 8, cc = 55, type = "drf", dataref = "CL650/lamps/overhead/fuel/xfer/pri/on", value_off = "0" },
+  { ch = 8, cc = 56, type = "drf", dataref = "CL650/lamps/overhead/fuel/xfer/man_ovrd/auto_inhib", value_off = "0" },
+  { ch = 8, cc = 57, type = "drf", dataref = "CL650/lamps/overhead/fuel/xfer/man_ovrd/manual", value_off = "0" },
+  { ch = 8, cc = 58, type = "drf", dataref = "CL650/lamps/overhead/fuel/xfer/sec/fail", value_off = "0" },
+  { ch = 8, cc = 59, type = "drf", dataref = "CL650/lamps/overhead/fuel/xfer/sec/on", value_off = "0" },
+  { ch = 8, cc = 60, type = "drf", dataref = "CL650/lamps/overhead/fuel/dump/fail", value_off = "0" },
+  { ch = 8, cc = 61, type = "drf", dataref = "CL650/lamps/overhead/fuel/dump/open", value_off = "0" },
+  
+  # OVERHEAD AIR COND
+  
+  { ch = 7, cc = 47, type = "drf", dataref = "CL650/overhead/aircond/pack_L", value_off = "0" },
+  { ch = 7, cc = 48, type = "drf", dataref = "CL650/overhead/aircond/pack_R", value_off = "0" },
+  { ch = 7, cc = 49, type = "drf", dataref = "CL650/overhead/aircond/ckpt", value_on = "2", value_off = "0" },
+  { ch = 7, cc = 50, type = "drf", dataref = "CL650/overhead/aircond/ckpt", value_on = "-1", value_off = "1" },
+  { ch = 7, cc = 51, type = "drf", dataref = "CL650/overhead/aircond/cabin", value_on = "2", value_off = "0" },
+  { ch = 7, cc = 52, type = "drf", dataref = "CL650/overhead/aircond/cabin", value_on = "-1" , value_off = "1"},
+  { ch = 7, cc = 53, type = "drf", dataref = "CL650/overhead/aircond/cabin_temp_cont_xfer", value_off = "0" },
+  
+  { ch = 8, cc = 30, type = "drf", dataref = "CL650/lamps/overhead/air_cond/pack/left/fail", value_off = "0" },
+  { ch = 8, cc = 31, type = "drf", dataref = "CL650/lamps/overhead/air_cond/pack/left/off", value_off = "0" },
+  { ch = 8, cc = 32, type = "drf", dataref = "CL650/lamps/overhead/air_cond/pack/right/fail", value_off = "0" },
+  { ch = 8, cc = 33, type = "drf", dataref = "CL650/lamps/overhead/air_cond/pack/right/off", value_off = "0" },
+
+  { ch = 7, cc = 94, type = "drf", dataref = "CL650/overhead/aircond/ram_air_cover", value_off = "0" },
+  { ch = 8, cc = 63, type = "drf", dataref = "CL650/lamps/overhead/air_cond/ram_air", value_off = "0" },
+  { ch = 7, cc = 95, type = "drf", dataref = "CL650/overhead/aircond/ram_air", value_off = "0" },
+
+  # OVERHEAD ELT
+  
+  { ch = 7, cc = 54, type = "drf", dataref = "CL650/overhead/elt", value_off = "0" },
+  { ch = 8, cc = 34, type = "drf", dataref = "CL650/lamps/overhead/elt", value_off = "0" },
+
+  # OVERHEAD PRESSURIZATION
+  
+  { ch = 7, cc = 55, type = "drf", dataref = "CL650/overhead/press/man/cont", value_off = "0" },
+  { ch = 7, cc = 56, type = "drf", dataref = "CL650/overhead/press/emer", value_off = "0" },
+  { ch = 7, cc = 57, type = "drf", dataref = "CL650/overhead/press/emer_cover", value_off = "0" },
+
+  { ch = 8, cc = 35, type = "drf", dataref = "CL650/lamps/overhead/press/press_cont/fail", value_off = "0" },
+  { ch = 8, cc = 36, type = "drf", dataref = "CL650/lamps/overhead/press/press_cont/man", value_off = "0" },
+  { ch = 8, cc = 37, type = "drf", dataref = "CL650/lamps/overhead/press/press_cont/emer_depress", value_off = "0" },
+  { ch = 8, cc = 62, type = "drf", dataref = "CL650/lamps/overhead/press/press_cont/cpc_fault", value_off = "0" },
+
+  # OVERHEAD BLEED
+
+  { ch = 7, cc = 58, type = "drf", dataref = "CL650/overhead/bleed/14st/L", value_off = "0" },
+  { ch = 7, cc = 59, type = "drf", dataref = "CL650/overhead/bleed/14st/isol", value_off = "0" },
+  { ch = 7, cc = 60, type = "drf", dataref = "CL650/overhead/bleed/14st/R", value_off = "0" },
+  { ch = 7, cc = 61, type = "drf", dataref = "CL650/overhead/bleed/10st/L", value_off = "0" },
+  { ch = 7, cc = 62, type = "drf", dataref = "CL650/overhead/bleed/10st/apu_lcv", value_off = "0" },
+  { ch = 7, cc = 63, type = "drf", dataref = "CL650/overhead/bleed/10st/isol", value_off = "0" },
+  { ch = 7, cc = 64, type = "drf", dataref = "CL650/overhead/bleed/10st/R", value_off = "0" },
+
+  { ch = 8, cc = 38, type = "drf", dataref = "CL650/lamps/overhead/bleed/14st/left/duct_fail", value_off = "0" },
+  { ch = 8, cc = 39, type = "drf", dataref = "CL650/lamps/overhead/bleed/14st/left/closed", value_off = "0" },
+  { ch = 8, cc = 40, type = "drf", dataref = "CL650/lamps/overhead/bleed/14st/isol", value_off = "0" },
+  { ch = 8, cc = 41, type = "drf", dataref = "CL650/lamps/overhead/bleed/14st/right/duct_fail", value_off = "0" },
+  { ch = 8, cc = 42, type = "drf", dataref = "CL650/lamps/overhead/bleed/14st/right/closed", value_off = "0" },
+  { ch = 8, cc = 43, type = "drf", dataref = "CL650/lamps/overhead/bleed/10st/left/duct_fail", value_off = "0" },
+  { ch = 8, cc = 44, type = "drf", dataref = "CL650/lamps/overhead/bleed/10st/left/closed", value_off = "0" },
+  { ch = 8, cc = 45, type = "drf", dataref = "CL650/lamps/overhead/bleed/10st/apu_lcv/fail", value_off = "0" },
+  { ch = 8, cc = 46, type = "drf", dataref = "CL650/lamps/overhead/bleed/10st/apu_lcv/open", value_off = "0" },
+  { ch = 8, cc = 47, type = "drf", dataref = "CL650/lamps/overhead/bleed/10st/isol", value_off = "0" },
+  { ch = 8, cc = 48, type = "drf", dataref = "CL650/lamps/overhead/bleed/10st/right/duct_fail", value_off = "0" },
+  { ch = 8, cc = 49, type = "drf", dataref = "CL650/lamps/overhead/bleed/10st/right/closed", value_off = "0" },
+  
+  # OVERHEAD ANTI ICE
+
+  { ch = 7, cc = 65, type = "drf", dataref = "CL650/overhead/ice/wing/mode", value_off = "-1", value_on = "1"  },
+  { ch = 7, cc = 75, type = "drf", dataref = "CL650/overhead/ice/wing/mode", value_on = "2", value_off = "0"  },
+  { ch = 7, cc = 66, type = "drf", dataref = "CL650/overhead/ice/cowl/L", value_off = "0" },
+  { ch = 7, cc = 67, type = "drf", dataref = "CL650/overhead/ice/cowl/R", value_off = "0" },
+  { ch = 7, cc = 68, type = "drf", dataref = "CL650/overhead/ice/test", value_on = "1", value_off = "0" },
+  { ch = 7, cc = 69, type = "drf", dataref = "CL650/overhead/ice/test", value_on = "-1", value_off = "0" },
+  { ch = 7, cc = 70, type = "drf", dataref = "CL650/overhead/ice/wind/L", value_on = "2", value_off = "0" },
+  { ch = 7, cc = 77, type = "drf", dataref = "CL650/overhead/ice/wind/L", value_on = "-1", value_off = "1" },
+  { ch = 7, cc = 71, type = "drf", dataref = "CL650/overhead/ice/wind/R", value_on = "2", value_off = "0" },
+  { ch = 7, cc = 78, type = "drf", dataref = "CL650/overhead/ice/wind/R", value_on = "-1", value_off = "1" },
+  { ch = 7, cc = 72, type = "drf", dataref = "CL650/overhead/ice/wind/test", value_off = "0" },
+  { ch = 7, cc = 73, type = "drf", dataref = "CL650/overhead/ice/probe/L", value_off = "0" },
+  { ch = 7, cc = 74, type = "drf", dataref = "CL650/overhead/ice/probe/R", value_off = "0" },
+  
+  { ch = 8, cc = 50, type = "drf", dataref = "CL650/lamps/overhead/anti_ice/lheat", value_off = "0" },
+  { ch = 8, cc = 51, type = "drf", dataref = "CL650/lamps/overhead/anti_ice/rheat", value_off = "0" },
+  { ch = 8, cc = 52, type = "drf", dataref = "CL650/lamps/overhead/anti_ice/cowl/left", value_off = "0" },
+  { ch = 8, cc = 53, type = "drf", dataref = "CL650/lamps/overhead/anti_ice/cowl/right", value_off = "0" },
+  
+  # OVERHEAD SIGNS
+  { ch = 7, cc = 79, type = "drf", dataref = "CL650/overhead/signs/no_smoking", value_off = "-1", value_on = "1"  },
+  { ch = 7, cc = 80, type = "drf", dataref = "CL650/overhead/signs/no_smoking", value_on = "2", value_off = "0"  },
+  { ch = 7, cc = 81, type = "drf", dataref = "CL650/overhead/signs/seatbelt", value_off = "-1", value_on = "1"  },
+  { ch = 7, cc = 82, type = "drf", dataref = "CL650/overhead/signs/seatbelt", value_on = "2", value_off = "0"  },
+  { ch = 7, cc = 83, type = "drf", dataref = "CL650/overhead/signs/emer_lts", value_off = "-1", value_on = "1"  },
+  { ch = 7, cc = 84, type = "drf", dataref = "CL650/overhead/signs/emer_lts", value_on = "2", value_off = "0"  },
+  { ch = 7, cc = 85, type = "drf", dataref = "CL650/overhead/signs/fdr_event", value_off = "0" },
+  
+
+] 
